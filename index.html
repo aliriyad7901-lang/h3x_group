@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H3X GROUP | Official Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* التنسيق الهندسي والألوان */
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --border-thin: 1px solid #ffffff;
+            --insta-red: #FF0000;
+            --wa-green: #25D366;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* واجهة الترحيب المتحركة */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: var(--border-thin);
+        }
+
+        .welcome-msg {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* أزرار التواصل */
+        .links-container {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .link-box {
+            padding: 12px 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .insta { background-color: var(--insta-red); }
+        .whatsapp { background-color: var(--wa-green); }
+        .link-box:hover { filter: brightness(1.2); transform: translateY(-3px); }
+
+        /* خانة الصورة الرئيسية */
+        .main-img-box {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .main-img-box img {
+            width: 100%;
+            max-width: 600px;
+            border: var(--border-thin);
+            padding: 10px;
+        }
+
+        /* معرض الصور (Slider) */
+        .products-title {
+            text-align: center;
+            padding: 20px;
+            border-top: var(--border-thin);
+            margin-top: 50px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto;
+            border: var(--border-thin);
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* للمحافظة على أبعاد البضاعة */
+            background: #0a0a0a;
+        }
+
+        /* أسهم التنقل */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 5;
+            transition: 0.3s;
+        }
+
+        .arrow:hover { background: white; color: black; }
+        .prev-arrow { left: 0; }
+        .next-arrow { right: 0; }
+
+        .image-counter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            padding: 5px 15px;
+            border: var(--border-thin);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- الترحيب -->
+    <section class="hero-section">
+        <h1 class="welcome-msg">اهلا بكم مع H3X GROUP</h1>
+        <div class="links-container">
+            <a href="https://www.instagram.com/h3x.group?igsh=YzU3bmdlNTVzbzN4" class="link-box insta">Instagram</a>
+            <a href="https://wa.me/07764646451" class="link-box whatsapp">WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- الصورة الرئيسية -->
+    <section class="main-img-box">
+        <h2 style="margin-bottom: 20px;">MAIN IMAGE</h2>
+        <img src="main.jpg" alt="H3X GROUP MAIN IMAGE" onerror="this.alt='يرجى تسمية الصورة الرئيسية main.jpg'">
+    </section>
+
+    <!-- معرض البضاعة -->
+    <h2 class="products-title">OUR PRODUCTS</h2>
+    <div class="slider-wrapper">
+        <div class="slides" id="imageSlider">
+            <!-- الصورة 1 -->
+            <div class="slide">
+                <img src="1.jpg" alt="Product 1" onerror="this.style.display='none'">
+                <div class="image-counter">ITEM 1 / 5</div>
+            </div>
+            <!-- الصورة 2 -->
+            <div class="slide">
+                <img src="2.jpg" alt="Product 2" onerror="this.style.display='none'">
+                <div class="image-counter">ITEM 2 / 5</div>
+            </div>
+            <!-- الصورة 3 -->
+            <div class="slide">
+                <img src="3.jpg" alt="Product 3" onerror="this.style.display='none'">
+                <div class="image-counter">ITEM 3 / 5</div>
+            </div>
+            <!-- الصورة 4 -->
+            <div class="slide">
+                <img src="4.jpg" alt="Product 4" onerror="this.style.display='none'">
+                <div class="image-counter">ITEM 4 / 5</div>
+            </div>
+            <!-- الصورة 5 -->
+            <div class="slide">
+                <img src="5.jpg" alt="Product 5" onerror="this.style.display='none'">
+                <div class="image-counter">ITEM 5 / 5</div>
+            </div>
+        </div>
+
+        <button class="arrow prev-arrow" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="arrow next-arrow" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const totalImages = 5;
+        const slider = document.getElementById('imageSlider');
+
+        function changeSlide(step) {
+            currentIndex += step;
+            if (currentIndex >= totalImages) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = totalImages - 1;
+            
+            const position = currentIndex * -100;
+            slider.style.transform = `translateX(${position}%)`;
+        }
+    </script>
+
+</body>
+</html>
